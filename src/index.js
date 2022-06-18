@@ -11,7 +11,7 @@ function App() {
         {" "}
         Weather | <span className="font-weight-bold"> Forecast </span>{" "}
       </p>
-      <Weather />
+      <Weather defaultCity="Lagos"/>
     </div>
   );
 }
