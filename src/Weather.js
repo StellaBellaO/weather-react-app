@@ -15,7 +15,7 @@ export default function Weather(props) {
     date: new Date(response.data.dt * 1000),
     wind: response.data.wind.speed,
     city: response.data.name,
-    icon: response.data.weather[0].icon,
+    icon: response.data.weather[0],
     description: response.data.weather[0].description
   });
 }
@@ -37,8 +37,7 @@ function handleCityChange(event) {
 
   if (weatherData.ready) {
     return (
-      <div className="container-fluid">
-        <div className="Weather shadow">
+        <div className="Weather">
           <img
             src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/bell_1f514.png"
             alt="bell ringing"
@@ -72,8 +71,7 @@ function handleCityChange(event) {
           </form>
           <WeatherInfo info={weatherData}/>
         </div>
-        </div>
-    );
+  );
 } else {
   search();
   return "Loading...";
