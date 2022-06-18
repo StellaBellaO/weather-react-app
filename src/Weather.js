@@ -6,8 +6,8 @@ import "./Weather.css";
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ready: false});
   const [city, setCity] = useState(props.defaultCity);
+  
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
     ready: true,
     temperature: response.data.main.temp,
@@ -15,7 +15,7 @@ export default function Weather(props) {
     date: new Date(response.data.dt * 1000),
     wind: response.data.wind.speed,
     city: response.data.name,
-    imgUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
+    icon: response.data.weather[0].icon,
     description: response.data.weather[0].description
   });
 }

@@ -1,55 +1,43 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
+import WeatherIcon from "./WeatherIcon";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherInfo(props) {
     return (
         <div className="WeatherInfo">
 
 <div className="overview">
-            <h1 className="text-white">{weatherData.city}</h1>
+            <h1 className="text-white">{props.data.city}</h1>
             <ul>
               <li className="text-white">Last updated: 
               <FormattedDate date={props.data.date}/> </li>
-              <li className="text-white">{weatherData.description}</li>
+              <li className="text-white">{props.data.description}</li>
             </ul>
           </div>
           <div className="row">
             <div className="col-6">
               <div className="clearfix weather-temperature">
-                <img
-                  src={weatherData.imgUrl}
-                  alt={weatherData.description}
-                  className="float-left"
-                />
+                  <div className="float-left">
+                  <weatherIcon code={props.data.icon}/>
+                  </div>
                 <div className="float-left">
-                  <strong className="text-white">
-                    {Math.round(weatherData.temperature)}
-                  </strong>
-                  <span className="units text-white">
-                    <a href="/" className="text-white">
-                      °C
-                    </a>{" "}
-                    |{" "}
-                    <a href="/" className="text-white">
-                      °F
-                    </a>
-                  </span>
+                 <WeatherTemperature celsius={props.data.temperature}/>
                 </div>
               </div>
             </div>
             <div className="col-6 weather-details">
               <ul>
                 <li className="text-warning">
-                  precipitation: {weatherData.precipitation}%
+                  precipitation: {props.data.precipitation}%
                 </li>
                 <li className="text-warning">
-                  Humidity: {weatherData.humidity}%
+                  Humidity: {props.data.humidity}%
                 </li>
-                <li className="text-warning">Wind: {weatherData.wind} km/h</li>
+                <li className="text-warning">Wind: {props.data.wind} km/h</li>
               </ul>
             </div>
           </div>
         </div>
-    
     );
 }
