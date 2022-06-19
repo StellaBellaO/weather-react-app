@@ -27,7 +27,7 @@ if (unit === "celsius") {
       </div>
     );
 } else {
-    let fahrenheit = (props.celsius * 9/5) / + 32;
+    
     return (
     <div className="WeatherTemparature">
     <span><strong className="temperature text-white">

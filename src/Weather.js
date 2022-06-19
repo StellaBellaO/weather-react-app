@@ -37,7 +37,8 @@ function handleCityChange(event) {
 
   if (weatherData.ready) {
     return (
-        <div className="Weather">
+      <div className="container-fluid">
+        <div className="Weather shadow">
           <img
             src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/bell_1f514.png"
             alt="bell ringing"
@@ -70,6 +71,7 @@ function handleCityChange(event) {
             </div>
           </form>
           <WeatherInfo info={weatherData}/>
+        </div>
         </div>
   );
 } else {
