@@ -22,7 +22,7 @@ export default function Weather(props) {
 
 function search() {
   const apiKey = "57a16d31a99c50513998174551722349";
-  let apiUrl = `http;/api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metrics`;
+  let apiUrl = `https//api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metrics`;
   axios.get(apiUrl).then(handleResponse);
 }
 
@@ -70,7 +70,7 @@ function handleCityChange(event) {
               </div>
             </div>
           </form>
-          <WeatherInfo info={weatherData}/>
+          <WeatherInfo city={city} info={weatherData}/>
         </div>
         </div>
   );
