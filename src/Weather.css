@@ -28,7 +28,8 @@
 .Weather .weather-temperature .units {
   position: relative;
   font-size: 16px;
-  top: -34px;
+  top: -10px;
+  left: 5px;
 }
 
 .Weather .weather-temperature .active {
@@ -88,4 +89,16 @@
   padding: 30px;
   position: relative;
   bottom: 30px;
+  left: 30px;
 }
+
+.WeatherInfo .weather-temp {
+  position: relative;
+  left: 20px;
+}
+
+
+.temperature {
+  font-size: 40px;
+}
+
