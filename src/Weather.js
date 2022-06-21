@@ -1,44 +1,44 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./Weather.css";
 
 export default function Weather(props) {
-  const [weatherData, setWeatherData] = useState({ready: false});
+  const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
-  
+
   function handleResponse(response) {
     setWeatherData({
-    ready: true,
-    temperature: response.data.main.temp,
-    humidity: response.data.main.humidity,
-    date: new Date(response.data.dt * 1000),
-    wind: response.data.wind.speed,
-    city: response.data.name,
-    icon: response.data.weather[0],
-    description: response.data.weather[0].description
-  });
-}
+      ready: true,
+      coordinates: response.data.coord,
+      temperature: response.data.main.temp,
+      humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
+      wind: response.data.wind.speed,
+      city: response.data.name,
+    });
+  }
 
-function search() {
-  const apiKey = "57a16d31a99c50513998174551722349";
-  let apiUrl = `https//api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metrics`;
-  axios.get(apiUrl).then(handleResponse);
-}
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
 
-function handlesubmit(event) {
-  event.preventdefault();
-  search();
-}
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
 
-function handleCityChange(event) {
- setCity(event.target.value);
-}
+  function search() {
+    const apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
 
   if (weatherData.ready) {
     return (
-      <div className="container-fluid">
-        <div className="Weather shadow">
+      <div className="Weather">
           <img
             src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/bell_1f514.png"
             alt="bell ringing"
@@ -49,7 +49,7 @@ function handleCityChange(event) {
             {" "}
             "Just like the weather, people change"
           </h2>
-          <form className="mb-3" onSubmit={handlesubmit}>
+          <form className="mb-3" onSubmit={handleSubmit}>
             <div className="row no-gutters">
               <div className="col-9">
                 <input
@@ -70,14 +70,13 @@ function handleCityChange(event) {
               </div>
             </div>
           </form>
-          <WeatherInfo city={city} info={weatherData}/>
-        </div>
-        </div>
-  );
-} else {
-  search();
-  return "Loading...";
-}
+          <WeatherInfo data={weatherData} />
+      </div>
+    );
+  } else {
+    search();
+    return "Loading...";
+  }
 }
 
    
