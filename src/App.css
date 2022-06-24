@@ -48,3 +48,7 @@ li:first-letter {
   display: block;
   margin: 10;
 }
+
+.open-sourced {
+  color: white;
+}
