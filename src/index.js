@@ -6,7 +6,7 @@ import Weather from "./Weather";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App container-fluid mx-auto d-block">
       <p className="banner text-white text-uppercase text-right">
         {" "}
         Weather | <span className="font-weight-bold"> Forecast </span>{" "}

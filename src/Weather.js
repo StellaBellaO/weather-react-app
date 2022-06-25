@@ -39,6 +39,7 @@ export default function Weather(props) {
 
   if (weatherData.ready) {
     return (
+      <div className="container-fluid">
       <div className="Weather">
           <img
             src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/bell_1f514.png"
@@ -73,6 +74,7 @@ export default function Weather(props) {
           </form>
           <WeatherInfo data={weatherData} />
           <WeatherForecast coordinates={weatherData.coordinates} />
+      </div>
       </div>
     );
   } else {
