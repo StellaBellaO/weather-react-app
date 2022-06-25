@@ -53,8 +53,3 @@ li:first-letter {
   color: white;
 }
 
-@media (max-width: 600px) {
-  .App {
-    max-width: 100px;
-  }
-}
