@@ -8,7 +8,7 @@ export default function WeatherInfo(props) {
         <div className="WeatherInfo">
 
 <div className="overview">
-            <h1 className="text-white">{props.data.city}</h1>
+            <h1 className="location text-white">{props.data.city}</h1>
             <ul>
               <li className="text-white">Last updated: 
               <FormattedDate date={props.data.date}/> </li>
